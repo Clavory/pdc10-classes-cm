@@ -25,14 +25,14 @@
         {{# all_teachers }}
                <tbody>
           <tr>
-            <th scope="row">{{id}}</th>
+            <th scope="row">{{teacher_id}}</th>
             <td>{{ first_name }}</td>
             <td>{{ last_name }}</td>
             <td>{{ email }}</td>
             <td>{{ contact_number }}</td>
             <td width="20%">
-              <a href="../teachers/edit.php?id={{id}}" class="btn btn-dark">Edit</a>
-              <a href="../teachers/delete.php?id={{id}}" class="btn btn-danger">Remove</a>
+              <a href="../teachers/edit.php?id={{teacher_id}}" class="btn btn-dark">Edit</a>
+              <a href="../teachers/delete.php?id={{teacher_id}}" class="btn btn-danger">Remove</a>
             </td>
           </tr>
         </tbody>

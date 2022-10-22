@@ -11,6 +11,8 @@
         <table class="table table-light table-striped-columns">
         <div><center>
                 <a href="../students/add.php" class="btn btn-dark btn-lg">Add</a>
+                <a href="../students/edit.php" class="btn btn-dark btn-lg">Edit</a>
+                <a href="../students/delete.php" class="btn btn-dark btn-lg">Delete</a>
         </center></div>
         <thead>
           <tr>
@@ -20,22 +22,17 @@
             <th scope="col">Email</th>
             <th scope="col">Contact Number</th>
             <th scope="col">Program</th>
-            <th scope="col">Action</th>
           </tr>
         </thead>
         {{# all_students }}
                <tbody>
           <tr>
-            <th scope="row">{{id}}</th>
-            <td>{{ first_name }}</td>
-            <td>{{ last_name }}</td>
-            <td>{{ email }}</td>
-            <td>{{ contact_number }}</td>
-            <td>{{ program }}</td>
-            <td width="20%">
-              <a href="../students/edit.php?id={{id}}" class="btn btn-dark">Edit</a>
-              <a href="../students/delete.php?id={{id}}" class="btn btn-danger">Remove</a>
-            </td>
+            <th scope="row">{{student_id}}</th>
+            <td>{{ student_first_name }}</td>
+            <td>{{ student_last_name }}</td>
+            <td>{{ student_email }}</td>
+            <td>{{ student_contact }}</td>
+            <td>{{ student_program }}</td>
           </tr>
         </tbody>
         {{/ all_students }}

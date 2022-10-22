@@ -27,45 +27,46 @@
     <div class="table">       
         <form method="POST" action="../students/add.php">
             <div class="form-group row">
-                <label for="first_name" class="col-sm-2 col-form-label" style="color:white;">First Name:</label>
+                <label for="student_first_name" class="col-sm-2 col-form-label" style="color:white;">First Name:</label>
                 <div class="col-sm-4">
-                <input type="text" class="form-control" id="first_name" name="first_name" required>
+                <input type="text" class="form-control" id="student_first_name" name="student_first_name" required>
                 </div>
             </div>
             <div class="form-group row">
-                <label for="last_name" class="col-sm-2 col-form-label" style="color:white;">Last Name:</label>
+                <label for="student_last_name" class="col-sm-2 col-form-label" style="color:white;">Last Name:</label>
                 <div class="col-sm-4">
-                <input type="text" class="form-control" id="last_name" name="last_name" required>
+                <input type="text" class="form-control" id="student_last_name" name="student_last_name">
                 </div>
             </div>
              <div class="form-group row">
                 <label for="student_number" class="col-sm-2 col-form-label" style="color:white;">Student Number:</label>
                 <div class="col-sm-4">
-                <input type="text" class="form-control" id="student_number" name="student_number" required>
+                <input type="text" class="form-control" id="student_number" name="student_number">
                 </div>
             </div>
             <div class="form-group row">
-                <label for="email" class="col-sm-2 col-form-label" style="color:white;">Email Address:</label>
+                <label for="student_email" class="col-sm-2 col-form-label" style="color:white;">Email Address:</label>
                 <div class="col-sm-4">
-                <input type="email" class="form-control" id="email" name="email" placeholder="email@sample.com" required>
+                <input type="email" class="form-control" id="student_email" name="student_email" placeholder="email@sample.com">
                 </div>
             </div>
             <div class="form-group row">
-                <label for="contact_number" class="col-sm-2 col-form-label" style="color:white;">Contact:</label>
+                <label for="student_contact" class="col-sm-2 col-form-label" style="color:white;">Contact:</label>
                 <div class="col-sm-4">
-                <input type="text" class="form-control" id="contact_number" name="contact_number" required>
+                <input type="text" class="form-control" id="student_contact" name="student_contact">
                 </div>
             </div>
             <div class="form-group row">
-                <label for="program" class="col-sm-2 col-form-label" style="color:white;">Program:</label>
+                <label for="student_program" class="col-sm-2 col-form-label" style="color:white;">Program:</label>
                     <div class="col-sm-4">
-                        <select class="form-select" name="program" id="program" aria-label="Select Program">
+                        <select class="form-select" name="student_program" id="student_program" aria-label="Select Program">
                             <option value="BSIT">BSIT</option>
                             <option value="BMMA">BMMA</option>
                             <option value="BSCS">BSCS</option>
+                            <option value="BSMT">BSMT</option>
                         </select>
                     </div>
-                </div>
+            </div>
             <div class="form-group row">
                 <div class="col-sm-4">
                 <button id="submit"  type="submit" class="btn btn-dark mb-2">Submit</button>

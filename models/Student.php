@@ -5,40 +5,40 @@ use \PDO;
 
 class Student
 {
-    protected $id;
-    protected $first_name;
-    protected $last_name;
+    protected $student_id;
+    protected $student_first_name;
+    protected $student_last_name;
     protected $student_number;
-    protected $email;
-    protected $contact;
-    protected $program;
+    protected $student_email;
+    protected $student_contact;
+    protected $student_program;
 
     protected $connection;
 
-    public function __construct($first_name, $last_name, $student_number, $email, $contact_number, $program)
+    public function __construct($student_first_name, $student_last_name, $student_number, $student_email, $student_contact, $student_program)
     {
-        $this->first_name = $first_name;
-        $this->last_name = $last_name;
+        $this->student_first_name = $student_first_name;
+        $this->student_last_name = $student_last_name;
         $this->student_number = $student_number;
-        $this->email = $email;
-        $this->contact_number = $contact_number;
-        $this->program = $program;
+        $this->student_email = $student_email;
+        $this->student_contact = $student_contact;
+        $this->student_program = $student_program;
     }
 
 
-    public function getId()
+    public function getStudentId()
 	{
-		return $this->id;
+		return $this->student_id;
 	}
 
 	public function getFirstName()
 	{
-		return $this->first_name;
+		return $this->student_first_name;
 	}
 
 	public function getLastName()
 	{
-		return $this->last_name;
+		return $this->student_last_name;
 	}
 
 	public function getStudentNumber()
@@ -48,17 +48,17 @@ class Student
 
     public function getEmail()
 	{
-		return $this->email;
+		return $this->student_email;
 	}
 
     public function getContactNumber()
 	{
-		return $this->contact_number;
+		return $this->student_contact;
     }
 
     public function getProgram()
 	{
-		return $this->program;
+		return $this->student_program;
     }
 
     public function setConnection($connection)
@@ -69,16 +69,16 @@ class Student
     public function addStudent()
 	{
 		try {
-			$sql = "INSERT INTO students SET first_name=:first_name, last_name=:last_name, student_number=:student_number, email=:email, contact_number=:contact_number, program=:program";
+			$sql = "INSERT INTO students SET student_first_name=:student_first_name, student_last_name=:student_last_name, student_number=:student_number, student_email=:student_email, student_contact=:student_contact, student_program=:student_program";
 			$statement = $this->connection->prepare($sql);
 
 			return $statement->execute([
-				':first_name' => $this->getFirstName(),
-				':last_name' => $this->getLastName(),
+				':student_first_name' => $this->getFirstName(),
+				':student_last_name' => $this->getLastName(),
                 ':student_number' => $this->getStudentNumber(),
-                ':email'=> $this->getEmail(),
-                ':contact_number'=> $this->getContactNumber(),
-                ':program'=> $this->getProgram(),
+                ':student_email'=> $this->getEmail(),
+                ':student_contact'=> $this->getContactNumber(),
+                ':student_program'=> $this->getProgram(),
 			]);
 
 		} catch (Exception $e) {
@@ -86,27 +86,27 @@ class Student
 		}
 	}
 
-    public function update($first_name, $last_name, $student_number, $email, $contact_number, $program)
+    public function update($student_first_name, $student_last_name, $student_number, $student_email, $student_contact, $student_program)
 	{
 		try {
-			$sql = 'UPDATE students SET first_name=?, last_name=?, student_number=?, email=?, contact_number=?, program=? WHERE id = ?';
+			$sql = 'UPDATE students SET student_first_name=?, student_last_name=?, student_number=?, student_email=?, student_contact=?, student_program=? WHERE id = ?';
 			$statement = $this->connection->prepare($sql);
 			$statement->execute([
-				$first_name,
-                $last_name,
+				$student_first_name,
+                $student_last_name,
 				$student_number,
-				$email,
-				$contact_number,
-				$program,
+				$student_email,
+				$student_contact,
+				$student_program,
                 $this->getId()
 
 			]);
-			$this->first_name = $first_name;
-			$this->last_name = $last_name;
+			$this->student_first_name = $student_first_name;
+			$this->student_last_name = $student_last_name;
 			$this->student_number = $student_number;
-			$this->email = $email;
-			$this->contact_number = $contact_number;
-			$this->program = $program;
+			$this->student_email = $student_email;
+			$this->student_contact = $student_contact;
+			$this->student_program = $student_program;
 		} catch (Exception $e) {
 			error_log($e->getMessage());
 		}
@@ -115,10 +115,10 @@ class Student
     public function delete()
 	{
 		try {
-			$sql = 'DELETE FROM students WHERE id=?';
+			$sql = 'DELETE FROM students WHERE student_id=?';
 			$statement = $this->connection->prepare($sql);
 			$statement->execute([
-				$this->getId()
+				$this->getStudentId()
 			]);
 		} catch (Exception $e) {
 			error_log($e->getMessage());

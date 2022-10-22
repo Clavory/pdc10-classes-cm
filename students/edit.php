@@ -3,11 +3,11 @@
 include ("../init.php");
 use Models\Student;
 
-    $id = $_GET['id'];
+    $id = $_GET['student_id'];
 
     $student = new Student('','','','','','');
     $student->setConnection($connection);
-    $student->getById($id);
+    $student->getById($student_id);
     $first_name = $student->getFirstName();
     $last_name = $student->getLastName();
     $student_number = $student->getStudentNumber();
