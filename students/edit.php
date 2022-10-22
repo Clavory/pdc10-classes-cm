@@ -19,7 +19,7 @@ use Models\Student;
 
     // echo $mustache->render('student/edit', compact('student'));
 
-    $template = $mustache->loadTemplate('student/edit.mustache');
+    $template = $mustache->loadTemplate('students/edit.mustache');
     echo $template->render(compact('id', 'student', 'first_name', 'last_name', 'student_number', 'email', 'contact', 'program'));
 
 ?>

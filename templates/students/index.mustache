@@ -8,12 +8,9 @@
     <body style="background-color:#5b3256;">
         <h1 style="color:white;"><center>STUDENTS</center></h1>
         <div class="table-responsive">
-        <table class="table table-bordered table-striped">
+        <table class="table table-light table-striped-columns">
         <div><center>
-                <a href="../students/add.php" class="btn btn-info" "btn btn-primary btn-lg">Add</a>
-                <a href="../students/edit.php?id={{id}}" class="btn btn-info" >Edit</a>
-                <a href="../students/delete.php?id={{id}}" class="btn btn-danger">Remove</a>
-
+                <a href="../students/add.php" class="btn btn-dark btn-lg">Add</a>
         </center></div>
         <thead>
           <tr>
@@ -23,6 +20,7 @@
             <th scope="col">Email</th>
             <th scope="col">Contact Number</th>
             <th scope="col">Program</th>
+            <th scope="col">Action</th>
           </tr>
         </thead>
         {{# all_students }}
@@ -34,6 +32,10 @@
             <td>{{ email }}</td>
             <td>{{ contact_number }}</td>
             <td>{{ program }}</td>
+            <td width="20%">
+              <a href="../students/edit.php?id={{id}}" class="btn btn-dark">Edit</a>
+              <a href="../students/delete.php?id={{id}}" class="btn btn-danger">Remove</a>
+            </td>
           </tr>
         </tbody>
         {{/ all_students }}
