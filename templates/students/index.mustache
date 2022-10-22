@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- CSS only -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    </head> 
+
+    <body style="background-color:#5b3256;">
+        <h1 style="color:white;"><center>STUDENTS</center></h1>
+        <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+        <div><center>
+                <a href="../students/add.php" class="btn btn-info" "btn btn-primary btn-lg">Add</a>
+                <a href="../students/edit.php?id={{id}}" class="btn btn-info" >Edit</a>
+                <a href="../students/delete.php?id={{id}}" class="btn btn-danger">Remove</a>
+
+        </center></div>
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Contact Number</th>
+            <th scope="col">Program</th>
+          </tr>
+        </thead>
+        {{# all_students }}
+               <tbody>
+          <tr>
+            <th scope="row">{{id}}</th>
+            <td>{{ first_name }}</td>
+            <td>{{ last_name }}</td>
+            <td>{{ email }}</td>
+            <td>{{ contact_number }}</td>
+            <td>{{ program }}</td>
+          </tr>
+        </tbody>
+        {{/ all_students }}
+
+      </table>
+        </div>
+    
+
+</html>
