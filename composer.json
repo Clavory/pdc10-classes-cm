@@ -1,0 +1,18 @@
+{
+    "name": "user/pdc10-classes",
+    "autoload": {
+        "psr-4": {
+            "Models\\": "models/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Clavory",
+            "email": "allapitan.nathaniel@auf.edu.ph"
+        }
+    ],
+    "require": {
+        "mustache/mustache": "^2.14",
+        "vlucas/phpdotenv": "^5.4"
+    }
+}
