@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>Classes/Class List</title>
+        <!-- CSS only -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    </head> 
+
+    <body style="background-color:#5b3256;">
+        <h1 style="color:white;"><center>CLASSES/CLASS LIST</center></h1>
+        <div class="table-responsive">
+        <table class="table table-light table-striped-columns">
+        <div><center>
+                <a type="button" href="../frontpage.html" class="btn btn-danger btn-lg">Back</a>
+                <a href="../classes/add.php" class="btn btn-dark btn-lg">Add</a>
+        </center></div>
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Class Name</th>
+            <th scope="col">Description</th>
+            <th scope="col">Class Code</th>
+            <th scope="col">Teacher ID</th>
+            <th scope="col">Action</th>
+
+          </tr>
+        </thead>
+        {{# all_classes }}
+               <tbody>
+          <tr>
+             <th scope="row">{{class_id}}</th>
+             <td>{{ class_name }}</td>
+             <td>{{ class_desc }}</td>
+             <td>{{ class_code }}</td>
+             <td>{{ teacher_id }}</td>
+             <td width="20%">
+                 <a href="../classes/edit.php?id={{id}}" class="btn btn-dark" style="width: 100px">Update</a>
+                 <a href="../classes/delete.php?id={{id}}" class="btn btn-danger"  style="width: 100px">Remove</a>
+            </td>
+                </tr>
+        </tbody>
+        {{/ all_classes }}
+
+        </table>
+        </div>
+</html>

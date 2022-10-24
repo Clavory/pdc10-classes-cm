@@ -11,7 +11,7 @@ use Models\Teacher;
     $first_name = $teacher->getFirstName();
     $last_name = $teacher->getLastName();
     $email = $teacher->getEmail();
-    $contact = $teacher->getContact();
+    $contact = $teacher->getContactNumber();
     $employee_number = $teacher->getEmployeeNumber();
     
 

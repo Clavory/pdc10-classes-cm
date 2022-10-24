@@ -7,7 +7,7 @@ use Models\Student;
 
     $student = new Student('','','','','','');
     $student->setConnection($connection);
-    $student->getStudentId($id);
+    $student->getId($id);
     $student_first_name = $student->getFirstName();
     $student_last_name = $student->getLastName();
     $student_number = $student->getStudentNumber();

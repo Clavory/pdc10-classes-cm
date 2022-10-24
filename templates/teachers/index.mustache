@@ -10,6 +10,7 @@
         <div class="table-responsive">
         <table class="table table-light table-striped-columns">
         <div><center>
+                <a type="button" href="../frontpage.html" class="btn btn-danger btn-lg">Back</a>
                 <a href="../teachers/add.php" class="btn btn-dark btn-lg">Add</a>
         </center></div>
         <thead>
@@ -26,12 +27,12 @@
                <tbody>
           <tr>
             <th scope="row">{{teacher_id}}</th>
-            <td>{{ first_name }}</td>
-            <td>{{ last_name }}</td>
-            <td>{{ email }}</td>
-            <td>{{ contact_number }}</td>
+            <td>{{ teacher_first_name }}</td>
+            <td>{{ teacher_last_name }}</td>
+            <td>{{ teacher_email }}</td>
+            <td>{{ teacher_contact }}</td>
             <td width="20%">
-              <a href="../teachers/edit.php?id={{teacher_id}}" class="btn btn-dark">Edit</a>
+              <a href="../teachers/edit.php?id={{teacher_id}}" class="btn btn-dark">Update</a>
               <a href="../teachers/delete.php?id={{teacher_id}}" class="btn btn-danger">Remove</a>
             </td>
           </tr>

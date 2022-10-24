@@ -5,48 +5,48 @@ use \PDO;
 
 class Teacher
 {
-    protected $id;
-    protected $first_name;
-    protected $last_name;
-    protected $email;
-    protected $contact;
+    protected $teacher_id;
+    protected $teacher_first_name;
+    protected $teacher_last_name;
+    protected $teacher_email;
+    protected $teacher_contact;
     protected $employee_number;
 
     protected $connection;
 
-    public function __construct($first_name, $last_name, $email, $contact_number, $employee_number)
+    public function __construct($teacher_first_name, $teacher_last_name, $teacher_email, $teacher_contact, $employee_number)
     {
-        $this->first_name = $first_name;
-        $this->last_name = $last_name;
-        $this->email = $email;
-        $this->contact_number = $contact_number;
+        $this->teacher_first_name = $teacher_first_name;
+        $this->teacher_last_name = $teacher_last_name;
+        $this->teacher_email = $teacher_email;
+        $this->teacher_contact = $teacher_contact;
         $this->employee_number = $employee_number;
     }
 
 
     public function getId()
 	{
-		return $this->id;
+		return $this->teacher_id;
 	}
 
 	public function getFirstName()
 	{
-		return $this->first_name;
+		return $this->teacher_first_name;
 	}
 
 	public function getLastName()
 	{
-		return $this->last_name;
+		return $this->teacher_last_name;
 	}
 
     public function getEmail()
 	{
-		return $this->email;
+		return $this->teacher_email;
 	}
 
     public function getContactNumber()
 	{
-		return $this->contact_number;
+		return $this->teacher_contact;
     }
 
     public function getEmployeeNumber()
@@ -62,14 +62,14 @@ class Teacher
     public function addTeacher()
 	{
 		try {
-			$sql = "INSERT INTO teachers SET first_name=:first_name, last_name=:last_name, email=:email, contact_number=:contact_number, employee_number=:employee_number";
+			$sql = "INSERT INTO teachers SET teacher_first_name=:teacher_first_name, teacher_last_name=:teacher_last_name, teacher_email=:teacher_email, teacher_contact=:teacher_contact, employee_number=:employee_number";
 			$statement = $this->connection->prepare($sql);
 
 			return $statement->execute([
-				':first_name' => $this->getFirstName(),
-				':last_name' => $this->getLastName(),
-                ':email'=> $this->getEmail(),
-                ':contact_number'=> $this->getContactNumber(),
+				':teacher_first_name' => $this->getFirstName(),
+				':teacher_last_name' => $this->getLastName(),
+                ':teacher_email'=> $this->getEmail(),
+                ':teacher_contact'=> $this->getContactNumber(),
                 ':employee_number' => $this->getEmployeeNumber()
 			]);
 
@@ -78,24 +78,24 @@ class Teacher
 		}
 	}
 
-    public function update($first_name, $last_name, $email, $contact_number, $employee_number)
+    public function update($teacher_first_name, $teacher_last_name, $teacher_email, $teacher_contact, $employee_number)
 	{
 		try {
-			$sql = 'UPDATE teachers SET first_name=?, last_name=?, email=?, contact_number=?, employee_number=? WHERE id = ?';
+			$sql = 'UPDATE teachers SET teacher_first_name=?, teacher_last_name=?, teacher_email=?, teacher_contact=?, employee_number=? WHERE id = ?';
 			$statement = $this->connection->prepare($sql);
 			$statement->execute([
-				$first_name,
-                $last_name,
-				$email,
-				$contact_number,
+				$teacher_first_name,
+                $teacher_last_name,
+				$teacher_email,
+				$teacher_contact,
                 $employee_number,
                 $this->getId()
 
 			]);
-			$this->first_name = $first_name;
-			$this->last_name = $last_name;
-			$this->email = $email;
-			$this->contact_number = $contact_number;
+			$this->teacher_first_name = $teacher_first_name;
+			$this->teacher_last_name = $teacher_last_name;
+			$this->teacher_email = $teacher_email;
+			$this->teacher_contact = $teacher_contact;
 			$this->employee_number = $employee_number;
 		} catch (Exception $e) {
 			error_log($e->getMessage());
@@ -114,6 +114,28 @@ class Teacher
 			error_log($e->getMessage());
 		}
 	}
+
+	public function getById($id)
+		{
+			try {
+				$sql = 'SELECT * FROM teachers WHERE teacher_id=:teacher_id';
+				$statement = $this->connection->prepare($sql);
+				$statement->execute([
+					':teacher_id' => $id
+				]);
+	
+				$row = $statement->fetch();
+	
+				$this->teacher_id = $row['teacher_id'];
+				$this->teacher_first_name = $row['teacher_first_name'];
+				$this->teacher_email = $row['teacher_email'];
+				$this->teacher_contact = $row['teacher_contact'];
+				$this->employee_number = $row['employee_number'];
+	
+			} catch (Exception $e) {
+				error_log($e->getMessage());
+			}
+		}
 
     public function getAll()
     {

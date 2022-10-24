@@ -10,6 +10,7 @@
         <div class="table-responsive">
         <table class="table table-light table-striped-columns">
         <div><center>
+                <a type="button" href="../frontpage.html" class="btn btn-danger btn-lg">Back</a>
                 <a href="../students/add.php" class="btn btn-dark btn-lg">Add</a>
         </center></div>
         <thead>
@@ -33,7 +34,7 @@
             <td>{{ student_contact }}</td>
             <td>{{ student_program }}</td>
             <td width="20%">
-              <a href="../students/edit.php?id={{student_id}}" class="btn btn-dark">Edit</a>
+              <a href="../students/edit.php?id={{student_id}}" class="btn btn-dark">Update</a>
               <a href="../students/delete.php?id={{student_id}}" class="btn btn-danger">Remove</a>
             </td>
           </tr>

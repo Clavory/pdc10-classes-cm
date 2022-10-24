@@ -26,7 +26,7 @@ class Student
     }
 
 
-    public function getStudentId()
+    public function getId()
 	{
 		return $this->student_id;
 	}
@@ -113,17 +113,40 @@ class Student
         
 	}
     public function delete()
-	{
-		try {
-			$sql = 'DELETE FROM students WHERE student_id=?';
-			$statement = $this->connection->prepare($sql);
-			$statement->execute([
-				$this->getStudentId()
-			]);
-		} catch (Exception $e) {
-			error_log($e->getMessage());
-		}
-	}
+    {
+        try {
+            $sql = 'DELETE FROM students WHERE id=?';
+            $statement = $this->connection->prepare($sql);
+            $statement->execute([
+                $this->getById()
+            ]);
+        } catch (Exception $e) {
+            error_log($e->getMessage());
+        }
+    }
+
+	public function getById($id)
+    {
+        try {
+            $sql = 'SELECT * FROM students WHERE student_id=:student_id';
+            $statement = $this->connection->prepare($sql);
+            $statement->execute([
+                ':student_id' => $id
+            ]);
+
+            $row = $statement->fetch();
+
+            $this->id = $row['student_id'];
+            $this->student_first_name = $row['student_first_name'];
+            $this->student_last_name = $row['student_last_name'];
+			$this->student_number = $row['student_number'];
+            $this->student_email = $row['student_email'];
+            $this->student_contact = $row['student_contact'];
+            $this->student_program = $row['student_program'];
+        } catch (Exception $e) {
+            error_log($e->getMessage());
+        }
+    }
 
     public function getAll()
     {
